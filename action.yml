@@ -1,0 +1,16 @@
+name: 'Generate Resume'
+description: 'Use hackmyresume and a theme to generate a webpage resume'
+inputs:
+  resume-file:
+    description: 'Path to the resume json'
+    required: false
+    default: 'resume.json'
+  theme-folder:
+    description: 'Path to the resume json'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    RESUME_FILE: ${{ inputs.resume-file }}
+    THEME_FOLDER: ${{ inputs.theme-folder }}
